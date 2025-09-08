@@ -66,6 +66,44 @@ python3 npm_compromise_detector.py /path/to/project --full-tree --output full-tr
 python3 npm_compromise_detector.py --quiet
 ```
 
+## ⚡ Quick Command Guide
+
+### 🔍 **Essential Scans**
+```bash
+# Comprehensive security audit with all features
+python3 npm_compromise_detector.py '/path/to/your/project' --output security-audit.txt --check-cache --full-tree --show-locations
+
+# Quick check with enhanced locations
+python3 npm_compromise_detector.py '/path/to/your/project' --show-locations
+
+# Complete analysis with package inventory
+python3 npm_compromise_detector.py '/path/to/your/project' --full-tree --list-packages --output complete-report.txt
+```
+
+### 🎯 **Production Ready Commands**
+```bash
+# CI/CD pipeline scan (quiet mode for automation)
+python3 npm_compromise_detector.py '/path/to/your/project' --quiet --output ci-security-scan.txt
+
+# Development workflow scan (detailed feedback)
+python3 npm_compromise_detector.py '/path/to/your/project' --full-tree --show-locations
+
+# Security team audit (comprehensive with all data)
+python3 npm_compromise_detector.py '/path/to/your/project' --output audit-report.txt --check-cache --full-tree --list-packages --show-locations
+```
+
+### 📊 **Specialized Scans**
+```bash
+# Focus on npm cache vulnerabilities
+python3 npm_compromise_detector.py '/path/to/your/project' --check-cache --output cache-scan.txt
+
+# Package inventory only (no vulnerability scan)
+python3 npm_compromise_detector.py '/path/to/your/project' --list-packages --quiet --output package-inventory.txt
+
+# Fast scan with location details (no full tree)
+python3 npm_compromise_detector.py '/path/to/your/project' --show-locations --output quick-detailed-scan.txt
+```
+
 ## 📊 Tool Features
 
 ### 🔍 Detection Capabilities
