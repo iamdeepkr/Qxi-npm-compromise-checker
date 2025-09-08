@@ -59,6 +59,9 @@ python3 npm_compromise_detector.py
 # Scan specific directory with full options
 python3 npm_compromise_detector.py /path/to/project --output report.txt --check-cache
 
+# Enable FULL dependency tree analysis (slower but comprehensive)
+python3 npm_compromise_detector.py /path/to/project --full-tree --output full-tree-report.txt
+
 # Quiet mode (only show critical findings)
 python3 npm_compromise_detector.py --quiet
 ```
@@ -68,6 +71,7 @@ python3 npm_compromise_detector.py --quiet
 ### 🔍 Detection Capabilities
 - ✅ **Package.json scanning** - Detects compromised versions in dependencies
 - ✅ **Lock file analysis** - Scans `package-lock.json` and `yarn.lock`
+- 🆕 **Full dependency tree analysis** - Uses `npm list` and `yarn list` for complete transitive dependency scanning
 - ✅ **NPM cache checking** - Identifies cached malicious packages
 - ✅ **Source code scanning** - Detects malicious URLs and crypto-related indicators
 - ✅ **Recursive directory scanning** - Scans entire project trees
@@ -90,9 +94,31 @@ Options:
   --output, -o FILE      Save report to file
   --no-recursive         Don't scan subdirectories
   --check-cache          Check npm cache for compromised packages
+  --full-tree            Enable full dependency tree analysis (slower but comprehensive)
   --quiet, -q            Only show critical findings
   --help                 Show help message
 ```
+
+## 🌳 Dependency Analysis Modes
+
+### Standard Mode (Default)
+- ✅ Scans **direct dependencies** in `package.json` files
+- ✅ Scans **complete dependency tree** in lock files (`package-lock.json`, `yarn.lock`)
+- ⚡ **Fast** - Good for most use cases
+
+### Full Tree Mode (`--full-tree`)
+- ✅ Everything from Standard Mode +
+- 🆕 **Live dependency resolution** using `npm list` and `yarn list`
+- 🆕 **Finds transitive dependencies** even without lock files
+- 🆕 **Detects compromised packages** at any depth in the dependency tree
+- 🐌 **Slower** - Requires npm/yarn to resolve dependencies
+- 🎯 **Most comprehensive** - Recommended for security audits
+
+### When to Use Full Tree Mode
+- 🔍 **Security audits** - When you need complete coverage
+- 📦 **Projects without lock files** - When only `package.json` exists
+- 🕵️ **Deep dependency analysis** - To find hidden compromised packages
+- 🚨 **Critical environments** - When security is paramount
 
 ## 🛠️ Installation & Setup
 

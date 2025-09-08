@@ -18,6 +18,8 @@ from pathlib import Path
 from typing import Dict, List, Set, Tuple, Optional
 import argparse
 from datetime import datetime
+import tempfile
+import shutil
 
 class NPMCompromiseDetector:
     def __init__(self):
@@ -66,6 +68,15 @@ class NPMCompromiseDetector:
         
         self.findings = []
         self.scanned_files = []
+        self.scanned_packages = []  # Track all packages found during scanning
+        self.package_sources = {}   # Track where each package was found
+        self.dependency_stats = {   # Track dependency analysis statistics
+            'direct_dependencies': 0,
+            'transitive_dependencies': 0,
+            'lock_file_packages': 0,
+            'tree_resolved_packages': 0
+        }
+        self.full_tree_analysis = False
         
     def log_finding(self, severity: str, message: str, file_path: str = None, details: Dict = None):
         """Log a security finding"""
@@ -78,6 +89,186 @@ class NPMCompromiseDetector:
         }
         self.findings.append(finding)
         
+    def enable_full_tree_analysis(self, enable: bool = True):
+        """Enable or disable full dependency tree analysis"""
+        self.full_tree_analysis = enable
+        
+    def track_package(self, package_name: str, version: str, source: str, file_path: str = None, depth: int = 0):
+        """Track a scanned package for reporting purposes"""
+        package_key = f"{package_name}@{version}"
+        
+        # Add to scanned packages list if not already present
+        if package_key not in [p['key'] for p in self.scanned_packages]:
+            package_info = {
+                'key': package_key,
+                'name': package_name,
+                'version': version,
+                'source': source,
+                'file_path': file_path,
+                'depth': depth,
+                'first_seen': datetime.now().isoformat()
+            }
+            self.scanned_packages.append(package_info)
+            
+        # Track source information
+        if package_key not in self.package_sources:
+            self.package_sources[package_key] = []
+        
+        source_info = {
+            'source': source,
+            'file_path': file_path,
+            'depth': depth
+        }
+        
+        # Avoid duplicate source entries
+        if source_info not in self.package_sources[package_key]:
+            self.package_sources[package_key].append(source_info)
+        
+    def get_npm_dependency_tree(self, package_json_dir: str) -> Dict:
+        """Get full dependency tree using npm list"""
+        try:
+            # Change to the directory containing package.json
+            original_cwd = os.getcwd()
+            os.chdir(package_json_dir)
+            
+            # Run npm list to get full dependency tree
+            result = subprocess.run(
+                ['npm', 'list', '--json', '--all', '--prod'],
+                capture_output=True,
+                text=True,
+                timeout=60
+            )
+            
+            os.chdir(original_cwd)
+            
+            if result.returncode == 0:
+                return json.loads(result.stdout)
+            else:
+                # Try without --prod flag in case of issues
+                os.chdir(package_json_dir)
+                result = subprocess.run(
+                    ['npm', 'list', '--json', '--all'],
+                    capture_output=True,
+                    text=True,
+                    timeout=60
+                )
+                os.chdir(original_cwd)
+                
+                if result.returncode == 0:
+                    return json.loads(result.stdout)
+                    
+        except (subprocess.TimeoutExpired, json.JSONDecodeError, FileNotFoundError) as e:
+            self.log_finding('WARNING', f'Failed to get npm dependency tree: {str(e)}', package_json_dir)
+        except Exception as e:
+            os.chdir(original_cwd)
+            self.log_finding('WARNING', f'Error getting npm dependency tree: {str(e)}', package_json_dir)
+            
+        return {}
+        
+    def get_yarn_dependency_tree(self, package_json_dir: str) -> Dict:
+        """Get full dependency tree using yarn list"""
+        try:
+            # Change to the directory containing package.json
+            original_cwd = os.getcwd()
+            os.chdir(package_json_dir)
+            
+            # Run yarn list to get full dependency tree
+            result = subprocess.run(
+                ['yarn', 'list', '--json', '--production'],
+                capture_output=True,
+                text=True,
+                timeout=60
+            )
+            
+            os.chdir(original_cwd)
+            
+            if result.returncode == 0:
+                # Parse yarn's line-delimited JSON output
+                lines = result.stdout.strip().split('\n')
+                for line in lines:
+                    try:
+                        data = json.loads(line)
+                        if data.get('type') == 'tree':
+                            return {'dependencies': self._parse_yarn_tree(data.get('data', {}).get('trees', []))}
+                    except json.JSONDecodeError:
+                        continue
+                        
+        except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+            self.log_finding('WARNING', f'Failed to get yarn dependency tree: {str(e)}', package_json_dir)
+        except Exception as e:
+            os.chdir(original_cwd)
+            self.log_finding('WARNING', f'Error getting yarn dependency tree: {str(e)}', package_json_dir)
+            
+        return {}
+        
+    def _parse_yarn_tree(self, trees: List) -> Dict:
+        """Parse yarn tree structure into npm-like format"""
+        dependencies = {}
+        
+        for tree in trees:
+            name = tree.get('name', '')
+            if '@' in name:
+                # Parse package@version format
+                parts = name.rsplit('@', 1)
+                if len(parts) == 2:
+                    package_name = parts[0]
+                    version = parts[1]
+                    dependencies[package_name] = {
+                        'version': version,
+                        'dependencies': self._parse_yarn_tree(tree.get('children', []))
+                    }
+                    
+        return dependencies
+        
+    def scan_dependency_tree_recursive(self, deps: Dict, file_path: str, depth: int = 0) -> List[Dict]:
+        """Recursively scan dependency tree for compromised packages"""
+        findings = []
+        
+        if depth > 50:  # Prevent infinite recursion
+            return findings
+            
+        for package_name, package_info in deps.items():
+            version = package_info.get('version', '')
+            
+            # Track all packages found in dependency tree
+            if version:
+                source_type = 'transitive_dependency' if depth > 0 else 'tree_resolved_dependency'
+                self.track_package(package_name, version, source_type, file_path, depth)
+                
+                if depth > 0:
+                    self.dependency_stats['transitive_dependencies'] += 1
+                else:
+                    self.dependency_stats['tree_resolved_packages'] += 1
+            
+            if package_name in self.compromised_packages:
+                if version == self.compromised_packages[package_name]:
+                    self.log_finding(
+                        'CRITICAL',
+                        f'Compromised package in dependency tree: {package_name}@{version} (depth: {depth})',
+                        file_path,
+                        {
+                            'package': package_name, 
+                            'version': version, 
+                            'depth': depth,
+                            'tree_source': 'npm/yarn_list'
+                        }
+                    )
+                    findings.append({
+                        'package': package_name,
+                        'version': version,
+                        'file': file_path,
+                        'depth': depth,
+                        'source': 'dependency_tree'
+                    })
+                    
+            # Recursively check nested dependencies
+            if 'dependencies' in package_info and package_info['dependencies']:
+                findings.extend(self.scan_dependency_tree_recursive(
+                    package_info['dependencies'], file_path, depth + 1
+                ))
+                
+        return findings
+
     def scan_package_json(self, file_path: str) -> List[Dict]:
         """Scan package.json for compromised packages"""
         findings = []
@@ -86,14 +277,17 @@ class NPMCompromiseDetector:
             with open(file_path, 'r', encoding='utf-8') as f:
                 package_data = json.load(f)
                 
-            # Check dependencies
+            # Check direct dependencies first
             for dep_type in ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies']:
                 if dep_type in package_data:
                     for package_name, version in package_data[dep_type].items():
+                        # Track all packages found
+                        clean_version = re.sub(r'^[^\d]*', '', version)
+                        self.track_package(package_name, clean_version, f'direct_{dep_type}', file_path, depth=0)
+                        self.dependency_stats['direct_dependencies'] += 1
+                        
                         if package_name in self.compromised_packages:
                             compromised_version = self.compromised_packages[package_name]
-                            # Remove version prefixes like ^, ~, >=, etc.
-                            clean_version = re.sub(r'^[^\d]*', '', version)
                             
                             if clean_version == compromised_version:
                                 self.log_finding(
@@ -113,6 +307,38 @@ class NPMCompromiseDetector:
                                     'type': dep_type,
                                     'file': file_path
                                 })
+            
+            # If full tree analysis is enabled, also check the complete dependency tree
+            if self.full_tree_analysis:
+                package_dir = os.path.dirname(file_path)
+                
+                # Try to get dependency tree using npm or yarn
+                dep_tree = {}
+                
+                # Check if yarn.lock exists (prefer yarn)
+                if os.path.exists(os.path.join(package_dir, 'yarn.lock')):
+                    print(f"🧶 Getting full dependency tree using yarn for {file_path}")
+                    dep_tree = self.get_yarn_dependency_tree(package_dir)
+                # Check if package-lock.json exists or node_modules (use npm)
+                elif (os.path.exists(os.path.join(package_dir, 'package-lock.json')) or 
+                      os.path.exists(os.path.join(package_dir, 'node_modules'))):
+                    print(f"📦 Getting full dependency tree using npm for {file_path}")
+                    dep_tree = self.get_npm_dependency_tree(package_dir)
+                
+                # Scan the full dependency tree if we got it
+                if dep_tree and 'dependencies' in dep_tree:
+                    tree_findings = self.scan_dependency_tree_recursive(
+                        dep_tree['dependencies'], file_path, depth=1
+                    )
+                    findings.extend(tree_findings)
+                    
+                    if tree_findings:
+                        self.log_finding(
+                            'INFO',
+                            f'Full dependency tree analysis found {len(tree_findings)} compromised packages',
+                            file_path,
+                            {'tree_findings_count': len(tree_findings)}
+                        )
                                 
         except (json.JSONDecodeError, FileNotFoundError) as e:
             self.log_finding('ERROR', f'Failed to parse {file_path}: {str(e)}', file_path)
@@ -146,8 +372,15 @@ class NPMCompromiseDetector:
             for package_path, package_info in lock_data['packages'].items():
                 if package_path.startswith('node_modules/'):
                     package_name = package_path.replace('node_modules/', '').split('/')[0]
+                    version = package_info.get('version', '')
+                    
+                    # Track all packages found in lock file
+                    if version:
+                        depth = package_path.count('/') - 1  # Calculate depth from path
+                        self.track_package(package_name, version, 'lock_file_v2_v3', file_path, depth)
+                        self.dependency_stats['lock_file_packages'] += 1
+                    
                     if package_name in self.compromised_packages:
-                        version = package_info.get('version', '')
                         if version == self.compromised_packages[package_name]:
                             self.log_finding(
                                 'CRITICAL',
@@ -172,8 +405,15 @@ class NPMCompromiseDetector:
         findings = []
         
         for package_name, package_info in deps.items():
+            version = package_info.get('version', '')
+            
+            # Track all packages found in lock file
+            if version:
+                depth = len(prefix.split('/')) - 1 if prefix else 0
+                self.track_package(package_name, version, 'lock_file_dependency', file_path, depth)
+                self.dependency_stats['lock_file_packages'] += 1
+            
             if package_name in self.compromised_packages:
-                version = package_info.get('version', '')
                 if version == self.compromised_packages[package_name]:
                     self.log_finding(
                         'CRITICAL',
@@ -443,6 +683,8 @@ def main():
                        help='Do not scan subdirectories')
     parser.add_argument('--check-cache', action='store_true',
                        help='Check npm cache for compromised packages')
+    parser.add_argument('--full-tree', action='store_true',
+                       help='Enable full dependency tree analysis (slower but comprehensive)')
     parser.add_argument('--quiet', '-q', action='store_true',
                        help='Only show critical findings')
     
@@ -450,8 +692,15 @@ def main():
     
     detector = NPMCompromiseDetector()
     
+    # Enable full tree analysis if requested
+    if args.full_tree:
+        detector.enable_full_tree_analysis(True)
+        print("🌳 Full dependency tree analysis enabled")
+    
     print("🔍 Starting NPM compromise detection scan...")
     print(f"📁 Scanning directory: {os.path.abspath(args.directory)}")
+    if args.full_tree:
+        print("⚠️  Full tree analysis may take longer but will find all transitive dependencies")
     print()
     
     # Scan directory
