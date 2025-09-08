@@ -1,0 +1,24 @@
+# NPM Compromise Detection Tool Requirements
+# Python 3.7+ required
+
+# No external dependencies required - uses only Python standard library:
+# - json (for parsing package files and configuration)
+# - os (for file system operations)
+# - re (for regex pattern matching)
+# - sys (for exit codes and arguments)
+# - subprocess (for npm cache checking)
+# - pathlib (for cross-platform path handling)
+# - typing (for type hints)
+# - argparse (for command line parsing)
+# - datetime (for timestamps)
+
+# Optional dependencies for enhanced features:
+# colorama>=0.4.4  # For colored terminal output on Windows
+# requests>=2.28.0  # For future URL validation features
+# pyyaml>=6.0      # For YAML configuration support
+
+# Development dependencies:
+# pytest>=7.0.0    # For unit testing
+# black>=22.0.0    # For code formatting
+# flake8>=5.0.0    # For linting
+# mypy>=0.991      # For type checking

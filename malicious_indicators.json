@@ -1,0 +1,200 @@
+{
+  "incident_metadata": {
+    "name": "NPM Supply Chain Attack - September 2025",
+    "date": "2025-09-08",
+    "cve_reference": "Pending",
+    "github_issue": "https://github.com/debug-js/debug/issues/1005",
+    "attack_vector": "Phishing email targeting package maintainer",
+    "impact": "Cryptocurrency wallet stealing malware",
+    "severity": "CRITICAL"
+  },
+  
+  "compromised_packages": {
+    "ansi-styles": {
+      "compromised_version": "6.2.2",
+      "weekly_downloads": "371.41M",
+      "safe_version": "6.2.1"
+    },
+    "debug": {
+      "compromised_version": "4.4.2",
+      "weekly_downloads": "357.6M", 
+      "safe_version": "4.3.7"
+    },
+    "chalk": {
+      "compromised_version": "5.6.1",
+      "weekly_downloads": "299.99M",
+      "safe_version": "5.3.0"
+    },
+    "supports-color": {
+      "compromised_version": "10.2.1",
+      "weekly_downloads": "287.1M",
+      "safe_version": "9.4.0"
+    },
+    "strip-ansi": {
+      "compromised_version": "7.1.1",
+      "weekly_downloads": "261.17M",
+      "safe_version": "7.1.0"
+    },
+    "ansi-regex": {
+      "compromised_version": "6.2.1",
+      "weekly_downloads": "243.64M",
+      "safe_version": "6.1.0"
+    },
+    "wrap-ansi": {
+      "compromised_version": "9.0.1",
+      "weekly_downloads": "197.99M",
+      "safe_version": "8.1.0"
+    },
+    "color-convert": {
+      "compromised_version": "3.1.1",
+      "weekly_downloads": "193.5M",
+      "safe_version": "2.0.1"
+    },
+    "color-name": {
+      "compromised_version": "2.0.1",
+      "weekly_downloads": "191.71M",
+      "safe_version": "1.1.4"
+    },
+    "is-arrayish": {
+      "compromised_version": "0.3.3",
+      "weekly_downloads": "73.8M",
+      "safe_version": "0.3.2"
+    },
+    "slice-ansi": {
+      "compromised_version": "7.1.1",
+      "weekly_downloads": "59.8M",
+      "safe_version": "7.1.0"
+    },
+    "color": {
+      "compromised_version": "5.0.1",
+      "weekly_downloads": "Unknown",
+      "safe_version": "4.2.3"
+    },
+    "color-string": {
+      "compromised_version": "2.1.1",
+      "weekly_downloads": "27.48M",
+      "safe_version": "1.9.1"
+    },
+    "simple-swizzle": {
+      "compromised_version": "0.2.3",
+      "weekly_downloads": "26.26M",
+      "safe_version": "0.2.2"
+    },
+    "supports-hyperlinks": {
+      "compromised_version": "4.1.1",
+      "weekly_downloads": "19.2M",
+      "safe_version": "3.1.0"
+    },
+    "has-ansi": {
+      "compromised_version": "6.0.1",
+      "weekly_downloads": "12.1M",
+      "safe_version": "5.0.1"
+    },
+    "chalk-template": {
+      "compromised_version": "1.1.1",
+      "weekly_downloads": "3.9M",
+      "safe_version": "1.0.0"
+    },
+    "backslash": {
+      "compromised_version": "0.2.1",
+      "weekly_downloads": "0.26M",
+      "safe_version": "0.2.0"
+    }
+  },
+  
+  "malicious_indicators": {
+    "domains": [
+      "npmjs.help",
+      "support.npmjs.help"
+    ],
+    "emails": [
+      "support@npmjs.help"
+    ],
+    "urls": [
+      "https://npmjs.help",
+      "http://npmjs.help",
+      "npmjs.help/reset",
+      "npmjs.help/2fa"
+    ],
+    "file_patterns": [
+      "src/index.js",
+      "lib/index.js",
+      "dist/index.js"
+    ]
+  },
+  
+  "crypto_indicators": [
+    "cryptocurrency",
+    "wallet",
+    "private key",
+    "privatekey",
+    "mnemonic",
+    "seed phrase",
+    "seedphrase",
+    "bitcoin",
+    "ethereum",
+    "crypto",
+    "metamask",
+    "web3",
+    "blockchain",
+    "coinbase",
+    "binance",
+    "ledger",
+    "trezor",
+    "wallet.dat",
+    "keystore",
+    "recovery phrase",
+    "bip39",
+    "hdwallet",
+    "cryptowallet"
+  ],
+  
+  "browser_apis": [
+    "window.crypto",
+    "localStorage",
+    "sessionStorage",
+    "indexedDB",
+    "navigator.clipboard",
+    "document.cookie",
+    "window.ethereum",
+    "web3"
+  ],
+  
+  "suspicious_patterns": [
+    "fetch\\s*\\(",
+    "XMLHttpRequest",
+    "eval\\s*\\(",
+    "Function\\s*\\(",
+    "atob\\s*\\(",
+    "btoa\\s*\\(",
+    "fromCharCode",
+    "\\\\x[0-9a-fA-F]{2}",
+    "\\\\u[0-9a-fA-F]{4}",
+    "String\\.fromCharCode",
+    "unescape\\s*\\(",
+    "decodeURIComponent\\s*\\("
+  ],
+  
+  "remediation": {
+    "immediate_actions": [
+      "Stop all running applications",
+      "Clear npm cache: npm cache clean --force",
+      "Remove node_modules and lock files",
+      "Update to safe package versions",
+      "Reinstall dependencies",
+      "Audit security: npm audit",
+      "Check crypto wallets if browser-based app"
+    ],
+    "safe_overrides": {
+      "chalk": "5.3.0",
+      "strip-ansi": "7.1.0",
+      "color-convert": "2.0.1", 
+      "color-name": "1.1.4",
+      "debug": "4.3.7",
+      "ansi-styles": "6.2.1",
+      "supports-color": "9.4.0",
+      "ansi-regex": "6.1.0",
+      "wrap-ansi": "8.1.0"
+    }
+  }
+}

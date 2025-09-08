@@ -1,0 +1,30 @@
+{
+  "name": "vulnerable-test-project",
+  "version": "1.0.0",
+  "description": "Test project with compromised packages for detection demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "debug": "4.4.2",
+    "chalk": "5.6.1",
+    "ansi-styles": "6.2.2",
+    "supports-color": "10.2.1",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "strip-ansi": "7.1.1",
+    "wrap-ansi": "9.0.1",
+    "jest": "^29.0.0"
+  },
+  "keywords": [
+    "test",
+    "vulnerable",
+    "demo"
+  ],
+  "author": "Security Research Team",
+  "license": "MIT"
+}
