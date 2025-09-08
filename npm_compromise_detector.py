@@ -70,11 +70,14 @@ class NPMCompromiseDetector:
         self.scanned_files = []
         self.scanned_packages = []  # Track all packages found during scanning
         self.package_sources = {}   # Track where each package was found
+        self.safe_packages = []     # Track packages that are safe versions of potentially compromised packages
         self.dependency_stats = {   # Track dependency analysis statistics
             'direct_dependencies': 0,
             'transitive_dependencies': 0,
             'lock_file_packages': 0,
-            'tree_resolved_packages': 0
+            'tree_resolved_packages': 0,
+            'safe_packages_found': 0,
+            'compromised_packages_found': 0
         }
         self.full_tree_analysis = False
         
@@ -123,6 +126,31 @@ class NPMCompromiseDetector:
         # Avoid duplicate source entries
         if source_info not in self.package_sources[package_key]:
             self.package_sources[package_key].append(source_info)
+            
+    def track_safe_package(self, package_name: str, version: str, compromised_version: str, source: str, file_path: str = None, depth: int = 0):
+        """Track a package that is a safe version of a potentially compromised package"""
+        safe_package_info = {
+            'name': package_name,
+            'version': version,
+            'compromised_version': compromised_version,
+            'source': source,
+            'file_path': file_path,
+            'depth': depth,
+            'found_at': datetime.now().isoformat()
+        }
+        
+        # Check if we already have this exact safe package entry
+        existing = any(
+            p['name'] == package_name and 
+            p['version'] == version and 
+            p['file_path'] == file_path and
+            p['source'] == source
+            for p in self.safe_packages
+        )
+        
+        if not existing:
+            self.safe_packages.append(safe_package_info)
+            self.dependency_stats['safe_packages_found'] += 1
         
     def get_npm_dependency_tree(self, package_json_dir: str) -> Dict:
         """Get full dependency tree using npm list"""
@@ -241,7 +269,8 @@ class NPMCompromiseDetector:
                     self.dependency_stats['tree_resolved_packages'] += 1
             
             if package_name in self.compromised_packages:
-                if version == self.compromised_packages[package_name]:
+                compromised_version = self.compromised_packages[package_name]
+                if version == compromised_version:
                     self.log_finding(
                         'CRITICAL',
                         f'Compromised package in dependency tree: {package_name}@{version} (depth: {depth})',
@@ -260,6 +289,25 @@ class NPMCompromiseDetector:
                         'depth': depth,
                         'source': 'dependency_tree'
                     })
+                    self.dependency_stats['compromised_packages_found'] += 1
+                else:
+                    # Package is potentially vulnerable but using a safe version in dependency tree
+                    self.track_safe_package(
+                        package_name, version, compromised_version,
+                        f'safe_tree_dependency', file_path, depth
+                    )
+                    self.log_finding(
+                        'INFO',
+                        f'Safe version in dependency tree: {package_name}@{version} (depth: {depth}, compromised: {compromised_version})',
+                        file_path,
+                        {
+                            'package': package_name,
+                            'safe_version': version,
+                            'compromised_version': compromised_version,
+                            'depth': depth,
+                            'tree_source': 'npm/yarn_list'
+                        }
+                    )
                     
             # Recursively check nested dependencies
             if 'dependencies' in package_info and package_info['dependencies']:
@@ -307,6 +355,24 @@ class NPMCompromiseDetector:
                                     'type': dep_type,
                                     'file': file_path
                                 })
+                                self.dependency_stats['compromised_packages_found'] += 1
+                            else:
+                                # Package is potentially vulnerable but using a safe version
+                                self.track_safe_package(
+                                    package_name, clean_version, compromised_version, 
+                                    f'safe_{dep_type}', file_path, depth=0
+                                )
+                                self.log_finding(
+                                    'INFO',
+                                    f'Safe version detected: {package_name}@{version} (compromised: {compromised_version})',
+                                    file_path,
+                                    {
+                                        'package': package_name,
+                                        'safe_version': version,
+                                        'compromised_version': compromised_version,
+                                        'dependency_type': dep_type
+                                    }
+                                )
             
             # If full tree analysis is enabled, also check the complete dependency tree
             if self.full_tree_analysis:
@@ -381,7 +447,8 @@ class NPMCompromiseDetector:
                         self.dependency_stats['lock_file_packages'] += 1
                     
                     if package_name in self.compromised_packages:
-                        if version == self.compromised_packages[package_name]:
+                        compromised_version = self.compromised_packages[package_name]
+                        if version == compromised_version:
                             self.log_finding(
                                 'CRITICAL',
                                 f'Compromised package in lock file: {package_name}@{version}',
@@ -393,6 +460,24 @@ class NPMCompromiseDetector:
                                 'version': version,
                                 'file': file_path
                             })
+                            self.dependency_stats['compromised_packages_found'] += 1
+                        else:
+                            # Package is potentially vulnerable but using a safe version
+                            self.track_safe_package(
+                                package_name, version, compromised_version,
+                                'safe_lock_file_v2_v3', file_path, depth
+                            )
+                            self.log_finding(
+                                'INFO',
+                                f'Safe version in lock file: {package_name}@{version} (compromised: {compromised_version})',
+                                file_path,
+                                {
+                                    'package': package_name,
+                                    'safe_version': version,
+                                    'compromised_version': compromised_version,
+                                    'path': package_path
+                                }
+                            )
                             
         # Check dependencies in lockfile v1 format
         if 'dependencies' in lock_data:
@@ -414,7 +499,8 @@ class NPMCompromiseDetector:
                 self.dependency_stats['lock_file_packages'] += 1
             
             if package_name in self.compromised_packages:
-                if version == self.compromised_packages[package_name]:
+                compromised_version = self.compromised_packages[package_name]
+                if version == compromised_version:
                     self.log_finding(
                         'CRITICAL',
                         f'Compromised package in dependencies: {package_name}@{version}',
@@ -426,6 +512,24 @@ class NPMCompromiseDetector:
                         'version': version,
                         'file': file_path
                     })
+                    self.dependency_stats['compromised_packages_found'] += 1
+                else:
+                    # Package is potentially vulnerable but using a safe version
+                    depth = len(prefix.split('/')) - 1 if prefix else 0
+                    self.track_safe_package(
+                        package_name, version, compromised_version,
+                        'safe_lock_file_dependency', file_path, depth
+                    )
+                    self.log_finding(
+                        'INFO',
+                        f'Safe version in lock dependencies: {package_name}@{version} (compromised: {compromised_version})',
+                        file_path,
+                        {
+                            'package': package_name,
+                            'safe_version': version,
+                            'compromised_version': compromised_version
+                        }
+                    )
                     
             # Recursively check nested dependencies
             if 'dependencies' in package_info:
@@ -596,6 +700,7 @@ class NPMCompromiseDetector:
         report_lines.append(f"Scan completed: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         report_lines.append(f"Files scanned: {len(self.scanned_files)}")
         report_lines.append(f"Total findings: {len(self.findings)}")
+        report_lines.append(f"Packages analyzed: {len(self.scanned_packages)}")
         report_lines.append("")
         
         # Summary by severity
@@ -604,9 +709,34 @@ class NPMCompromiseDetector:
             severity = finding['severity']
             severity_counts[severity] = severity_counts.get(severity, 0) + 1
             
+        # Package analysis summary
+        report_lines.append("PACKAGE ANALYSIS SUMMARY:")
+        report_lines.append("-" * 30)
+        report_lines.append(f"Direct dependencies: {self.dependency_stats['direct_dependencies']}")
+        report_lines.append(f"Transitive dependencies: {self.dependency_stats['transitive_dependencies']}")
+        report_lines.append(f"Lock file packages: {self.dependency_stats['lock_file_packages']}")
+        if self.full_tree_analysis:
+            report_lines.append(f"Tree resolved packages: {self.dependency_stats['tree_resolved_packages']}")
+        report_lines.append(f"Compromised packages found: {self.dependency_stats['compromised_packages_found']}")
+        report_lines.append(f"Safe versions found: {self.dependency_stats['safe_packages_found']}")
+        report_lines.append("")
+        
+        # Package source breakdown
+        source_counts = {}
+        for package in self.scanned_packages:
+            source = package['source']
+            source_counts[source] = source_counts.get(source, 0) + 1
+            
+        if source_counts:
+            report_lines.append("PACKAGE SOURCES:")
+            report_lines.append("-" * 20)
+            for source, count in sorted(source_counts.items()):
+                report_lines.append(f"{source}: {count}")
+            report_lines.append("")
+        
         report_lines.append("SEVERITY SUMMARY:")
         report_lines.append("-" * 20)
-        for severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'WARNING', 'ERROR']:
+        for severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'WARNING', 'ERROR', 'INFO']:
             if severity in severity_counts:
                 report_lines.append(f"{severity}: {severity_counts[severity]}")
         report_lines.append("")
@@ -619,14 +749,125 @@ class NPMCompromiseDetector:
             for i, finding in enumerate(self.findings, 1):
                 report_lines.append(f"{i}. [{finding['severity']}] {finding['message']}")
                 if finding['file']:
-                    report_lines.append(f"   File: {finding['file']}")
+                    report_lines.append(f"   📁 Location: {finding['file']}")
                 if finding['details']:
                     for key, value in finding['details'].items():
-                        report_lines.append(f"   {key}: {value}")
+                        if key == 'depth' and value > 0:
+                            report_lines.append(f"   🔗 Dependency depth: {value}")
+                        elif key == 'dependency_type':
+                            report_lines.append(f"   📦 Type: {value}")
+                        elif key == 'tree_source':
+                            report_lines.append(f"   🌳 Source: {value}")
+                        elif key == 'path':
+                            report_lines.append(f"   📂 Path: {value}")
+                        elif key in ['package', 'version', 'compromised_version', 'safe_version']:
+                            report_lines.append(f"   {key}: {value}")
+                        else:
+                            report_lines.append(f"   {key}: {value}")
                 report_lines.append("")
         else:
             report_lines.append("✅ No compromised packages detected!")
             report_lines.append("")
+            
+        # Add safe packages summary
+        if self.safe_packages:
+            report_lines.append("SAFE VERSIONS OF POTENTIALLY VULNERABLE PACKAGES:")
+            report_lines.append("-" * 50)
+            
+            # Group safe packages by name
+            safe_by_name = {}
+            for safe_pkg in self.safe_packages:
+                name = safe_pkg['name']
+                if name not in safe_by_name:
+                    safe_by_name[name] = []
+                safe_by_name[name].append(safe_pkg)
+            
+            for package_name in sorted(safe_by_name.keys()):
+                safe_versions = safe_by_name[package_name]
+                compromised_version = safe_versions[0]['compromised_version']
+                unique_versions = list(set(pkg['version'] for pkg in safe_versions))
+                
+                report_lines.append(f"✅ {package_name}")
+                report_lines.append(f"   Safe versions found: {', '.join(sorted(unique_versions))}")
+                report_lines.append(f"   Compromised version: {compromised_version}")
+                report_lines.append(f"   Found in {len(safe_versions)} location(s):")
+                
+                # Group by version and show locations
+                versions_by_location = {}
+                for pkg in safe_versions:
+                    version = pkg['version']
+                    if version not in versions_by_location:
+                        versions_by_location[version] = []
+                    
+                    location_info = {
+                        'file': pkg['file_path'],
+                        'source': pkg['source'],
+                        'depth': pkg['depth']
+                    }
+                    versions_by_location[version].append(location_info)
+                
+                for version in sorted(versions_by_location.keys()):
+                    locations = versions_by_location[version]
+                    report_lines.append(f"     v{version} ({len(locations)} location{'s' if len(locations) > 1 else ''}):")
+                    
+                    # Show locations (limit based on show_locations setting)
+                    max_locations = len(locations) if hasattr(self, 'show_locations') and self.show_locations else 5
+                    
+                    for i, loc in enumerate(locations[:max_locations]):
+                        depth_info = f" (depth: {loc['depth']})" if loc['depth'] > 0 else ""
+                        source_info = f" [{loc['source']}]"
+                        
+                        # Add more detailed info if show_locations is enabled
+                        if hasattr(self, 'show_locations') and self.show_locations:
+                            # Extract directory structure for better readability
+                            file_parts = loc['file'].split('/')
+                            if len(file_parts) > 3:
+                                short_path = f".../{'/'.join(file_parts[-3:])}"
+                            else:
+                                short_path = loc['file']
+                            report_lines.append(f"       - 📁 {short_path}{depth_info}{source_info}")
+                            if loc['file'] != short_path:
+                                report_lines.append(f"         Full path: {loc['file']}")
+                        else:
+                            report_lines.append(f"       - {loc['file']}{depth_info}{source_info}")
+                    
+                    if len(locations) > max_locations:
+                        report_lines.append(f"       ... and {len(locations) - max_locations} more location(s)")
+                
+                report_lines.append("")
+            
+        # Add detailed package list if requested
+        if hasattr(self, 'include_package_list') and self.include_package_list and self.scanned_packages:
+            report_lines.append("DETAILED PACKAGE LIST:")
+            report_lines.append("-" * 25)
+            
+            # Sort packages by name for better readability
+            sorted_packages = sorted(self.scanned_packages, key=lambda x: x['name'].lower())
+            
+            for package in sorted_packages:
+                report_lines.append(f"📦 {package['name']}@{package['version']}")
+                report_lines.append(f"   🏷️  Source: {package['source']}")
+                if package['file_path']:
+                    report_lines.append(f"   📁 File: {package['file_path']}")
+                if package['depth'] > 0:
+                    report_lines.append(f"   🔗 Depth: {package['depth']}")
+                
+                # Show all sources where this package was found
+                package_key = package['key']
+                if package_key in self.package_sources and len(self.package_sources[package_key]) > 1:
+                    report_lines.append("   📍 Also found in:")
+                    max_additional = 10 if hasattr(self, 'show_locations') and self.show_locations else 3
+                    additional_sources = self.package_sources[package_key][1:max_additional + 1]
+                    
+                    for source_info in additional_sources:
+                        depth_info = f" (depth: {source_info['depth']})" if source_info['depth'] > 0 else ""
+                        report_lines.append(f"     - {source_info['source']}: {source_info['file_path']}{depth_info}")
+                    
+                    remaining = len(self.package_sources[package_key]) - 1 - len(additional_sources)
+                    if remaining > 0:
+                        report_lines.append(f"     ... and {remaining} more location(s)")
+                
+                report_lines.append("")
             
         # Recommendations
         report_lines.append("RECOMMENDATIONS:")
@@ -685,6 +926,10 @@ def main():
                        help='Check npm cache for compromised packages')
     parser.add_argument('--full-tree', action='store_true',
                        help='Enable full dependency tree analysis (slower but comprehensive)')
+    parser.add_argument('--list-packages', action='store_true',
+                       help='Include detailed list of all scanned packages in report')
+    parser.add_argument('--show-locations', action='store_true',
+                       help='Show detailed location information for all findings')
     parser.add_argument('--quiet', '-q', action='store_true',
                        help='Only show critical findings')
     
@@ -696,6 +941,16 @@ def main():
     if args.full_tree:
         detector.enable_full_tree_analysis(True)
         print("🌳 Full dependency tree analysis enabled")
+    
+    # Enable package listing if requested
+    if args.list_packages:
+        detector.include_package_list = True
+        print("📋 Detailed package listing enabled")
+    
+    # Enable detailed location information if requested
+    if args.show_locations:
+        detector.show_locations = True
+        print("📍 Detailed location information enabled")
     
     print("🔍 Starting NPM compromise detection scan...")
     print(f"📁 Scanning directory: {os.path.abspath(args.directory)}")

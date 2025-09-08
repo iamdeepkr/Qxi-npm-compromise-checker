@@ -72,6 +72,7 @@ python3 npm_compromise_detector.py --quiet
 - ✅ **Package.json scanning** - Detects compromised versions in dependencies
 - ✅ **Lock file analysis** - Scans `package-lock.json` and `yarn.lock`
 - 🆕 **Full dependency tree analysis** - Uses `npm list` and `yarn list` for complete transitive dependency scanning
+- 🆕 **Safe version detection** - Identifies packages using safe versions of potentially vulnerable packages
 - ✅ **NPM cache checking** - Identifies cached malicious packages
 - ✅ **Source code scanning** - Detects malicious URLs and crypto-related indicators
 - ✅ **Recursive directory scanning** - Scans entire project trees
@@ -95,6 +96,8 @@ Options:
   --no-recursive         Don't scan subdirectories
   --check-cache          Check npm cache for compromised packages
   --full-tree            Enable full dependency tree analysis (slower but comprehensive)
+  --list-packages        Include detailed list of all scanned packages in report
+  --show-locations       Show detailed location information for all findings
   --quiet, -q            Only show critical findings
   --help                 Show help message
 ```
@@ -119,6 +122,70 @@ Options:
 - 📦 **Projects without lock files** - When only `package.json` exists
 - 🕵️ **Deep dependency analysis** - To find hidden compromised packages
 - 🚨 **Critical environments** - When security is paramount
+
+## 🛡️ Safe Version Detection
+
+The tool now automatically detects when you're using **safe versions** of potentially vulnerable packages:
+
+### 📊 What Gets Reported
+- ✅ **Compromised versions** - Packages using exact malicious versions (CRITICAL)
+- ✅ **Safe versions** - Packages using non-compromised versions of vulnerable packages (INFO)
+- 📈 **Statistics** - Count of safe vs compromised packages found
+- 📋 **Summary** - Grouped overview of all safe versions detected
+
+### 🔍 Example Output
+```
+✅ chalk
+   Safe versions found: 4.0.0, 5.3.0
+   Compromised version: 5.6.1
+   Found in 15 location(s)
+
+✅ debug  
+   Safe versions found: 4.3.4, 4.1.1
+   Compromised version: 4.4.2
+   Found in 8 location(s)
+```
+
+This helps you understand your security posture and identify packages that could become vulnerable if updated to specific versions.
+
+## 📍 Enhanced Location Reporting
+
+Get detailed information about **where packages are found** in your project:
+
+### 🔍 Location Details Include:
+- 📁 **Full file paths** - Exact location of each package
+- 🔗 **Dependency depth** - How deep in the dependency tree
+- 🏷️ **Source type** - Direct, transitive, or lock file dependency
+- 📂 **Package path** - Location within node_modules structure
+
+### 💡 Usage Examples:
+```bash
+# Show detailed locations for all findings
+python3 npm_compromise_detector.py --show-locations
+
+# Comprehensive report with all package details
+python3 npm_compromise_detector.py --list-packages --show-locations --output detailed-report.txt
+
+# Focus on specific project with enhanced locations
+python3 npm_compromise_detector.py /path/to/project --show-locations
+```
+
+### 📊 Enhanced Output Format:
+```
+✅ chalk
+   Safe versions found: 4.0.0, 5.3.0
+   Compromised version: 5.6.1
+   Found in 15 location(s):
+     v4.0.0 (12 locations):
+       - 📁 .../node_modules/jest-util/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-util/package.json
+       - 📁 .../node_modules/jest-config/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-config/package.json
+       ... and 10 more location(s)
+     v5.3.0 (3 locations):
+       - 📁 package.json [safe_dependencies]
+       - 📁 package-lock.json [safe_lock_file_v2_v3]
+```
 
 ## 🛠️ Installation & Setup
 

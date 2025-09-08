@@ -1,0 +1,1335 @@
+================================================================================
+NPM PACKAGE COMPROMISE DETECTION REPORT
+================================================================================
+Scan completed: 2025-09-08 21:24:50
+Files scanned: 499
+Total findings: 136
+Packages analyzed: 1488
+
+PACKAGE ANALYSIS SUMMARY:
+------------------------------
+Direct dependencies: 3007
+Transitive dependencies: 0
+Lock file packages: 380
+Compromised packages found: 0
+Safe versions found: 132
+
+PACKAGE SOURCES:
+--------------------
+direct_dependencies: 372
+direct_devDependencies: 948
+direct_optionalDependencies: 1
+direct_peerDependencies: 9
+lock_file_v2_v3: 158
+
+SEVERITY SUMMARY:
+--------------------
+HIGH: 2
+MEDIUM: 1
+ERROR: 1
+INFO: 132
+
+DETAILED FINDINGS:
+--------------------
+1. [INFO] Safe version detected: debug@^4.3.4 (compromised: 4.4.2)
+   📁 Location: test_demo/package.json
+   package: debug
+   safe_version: ^4.3.4
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+2. [INFO] Safe version detected: chalk@^5.3.0 (compromised: 5.6.1)
+   📁 Location: test_demo/package.json
+   package: chalk
+   safe_version: ^5.3.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+3. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-runtime/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+4. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-runtime/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+5. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-runtime/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+6. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-runtime/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+7. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-matcher-utils/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+8. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-matcher-utils/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+9. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-matcher-utils/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+10. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-matcher-utils/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+11. [INFO] Safe version detected: debug@^4.1.1 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/istanbul-lib-source-maps/package.json
+   package: debug
+   safe_version: ^4.1.1
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+12. [INFO] Safe version detected: supports-color@^8.0.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-worker/package.json
+   package: supports-color
+   safe_version: ^8.0.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+13. [INFO] Safe version detected: ansi-regex@^5.0.1 (compromised: 6.2.1)
+   📁 Location: test_demo/node_modules/strip-ansi/package.json
+   package: ansi-regex
+   safe_version: ^5.0.1
+   compromised_version: 6.2.1
+   📦 Type: dependencies
+
+14. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/@jest/types/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+15. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/@jest/types/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+16. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/@jest/types/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+17. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/@jest/types/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+18. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/@jest/core/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+19. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/@jest/core/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   📦 Type: dependencies
+
+20. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/@jest/core/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+21. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/@jest/core/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+22. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/@jest/core/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+23. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/@jest/reporters/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+24. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/@jest/reporters/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   📦 Type: dependencies
+
+25. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/@jest/reporters/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+26. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/@jest/reporters/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+27. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/@jest/reporters/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+28. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/@jest/transform/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+29. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/@jest/transform/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+30. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/@jest/transform/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+31. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/@jest/transform/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+32. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/@jest/console/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+33. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/@jest/console/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+34. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/@jest/console/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+35. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/@jest/console/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+36. [INFO] Safe version detected: is-arrayish@^0.2.1 (compromised: 0.3.3)
+   📁 Location: test_demo/node_modules/error-ex/package.json
+   package: is-arrayish
+   safe_version: ^0.2.1
+   compromised_version: 0.3.3
+   📦 Type: dependencies
+
+37. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-cli/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+38. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-cli/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+39. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-cli/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+40. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-cli/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+41. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/express/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+42. [INFO] Safe version detected: ansi-styles@^4.0.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/wrap-ansi/package.json
+   package: ansi-styles
+   safe_version: ^4.0.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+43. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/wrap-ansi/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   📦 Type: dependencies
+
+44. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/wrap-ansi/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: devDependencies
+
+45. [INFO] Safe version detected: has-ansi@^4.0.0 (compromised: 6.0.1)
+   📁 Location: test_demo/node_modules/wrap-ansi/package.json
+   package: has-ansi
+   safe_version: ^4.0.0
+   compromised_version: 6.0.1
+   📦 Type: devDependencies
+
+46. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/wrap-ansi/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+47. [INFO] Safe version detected: debug@^4.1.1 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/babel-plugin-istanbul/node_modules/istanbul-lib-instrument/package.json
+   package: debug
+   safe_version: ^4.1.1
+   compromised_version: 4.4.2
+   📦 Type: devDependencies
+
+48. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-circus/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+49. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-circus/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+50. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-circus/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+51. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-circus/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+52. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/string-length/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   📦 Type: dependencies
+
+53. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/babel-jest/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+54. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/babel-jest/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+55. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/babel-jest/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+56. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/babel-jest/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+57. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-resolve/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+58. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-resolve/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+59. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-resolve/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+60. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-resolve/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+61. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-watcher/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+62. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-watcher/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+63. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-watcher/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+64. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-watcher/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+65. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/chalk/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: devDependencies
+
+66. [INFO] Safe version detected: color-name@~1.1.4 (compromised: 2.0.1)
+   📁 Location: test_demo/node_modules/color-convert/package.json
+   package: color-name
+   safe_version: ~1.1.4
+   compromised_version: 2.0.1
+   📦 Type: dependencies
+
+67. [INFO] Safe version detected: chalk@^2.4.2 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/color-convert/package.json
+   package: chalk
+   safe_version: ^2.4.2
+   compromised_version: 5.6.1
+   📦 Type: devDependencies
+
+68. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/istanbul-lib-report/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+69. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-runner/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+70. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-runner/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+71. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-runner/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+72. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-runner/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+73. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/body-parser/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+74. [INFO] Safe version detected: debug@^4.1.0 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/@babel/core/package.json
+   package: debug
+   safe_version: ^4.1.0
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+75. [INFO] Safe version detected: strip-ansi@^4.0.0 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/@babel/code-frame/package.json
+   package: strip-ansi
+   safe_version: ^4.0.0
+   compromised_version: 7.1.1
+   📦 Type: devDependencies
+
+76. [INFO] Safe version detected: debug@^4.3.1 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/@babel/traverse/package.json
+   package: debug
+   safe_version: ^4.3.1
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+77. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-util/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+78. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-util/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+79. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-util/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+80. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-util/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+81. [INFO] Safe version detected: strip-ansi@^6.0.1 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/cliui/package.json
+   package: strip-ansi
+   safe_version: ^6.0.1
+   compromised_version: 7.1.1
+   📦 Type: dependencies
+
+82. [INFO] Safe version detected: wrap-ansi@^7.0.0 (compromised: 9.0.1)
+   📁 Location: test_demo/node_modules/cliui/package.json
+   package: wrap-ansi
+   safe_version: ^7.0.0
+   compromised_version: 9.0.1
+   📦 Type: dependencies
+
+83. [INFO] Safe version detected: chalk@^4.1.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/cliui/package.json
+   package: chalk
+   safe_version: ^4.1.0
+   compromised_version: 5.6.1
+   📦 Type: devDependencies
+
+84. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-snapshot/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+85. [INFO] Safe version detected: ansi-regex@^5.0.1 (compromised: 6.2.1)
+   📁 Location: test_demo/node_modules/jest-snapshot/package.json
+   package: ansi-regex
+   safe_version: ^5.0.1
+   compromised_version: 6.2.1
+   📦 Type: devDependencies
+
+86. [INFO] Safe version detected: ansi-styles@^5.0.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-snapshot/package.json
+   package: ansi-styles
+   safe_version: ^5.0.0
+   compromised_version: 6.2.2
+   📦 Type: devDependencies
+
+87. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-snapshot/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+88. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-snapshot/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+89. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-snapshot/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+90. [INFO] Safe version detected: debug@^4.1.1 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/istanbul-lib-instrument/package.json
+   package: debug
+   safe_version: ^4.1.1
+   compromised_version: 4.4.2
+   📦 Type: devDependencies
+
+91. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-message-util/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+92. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-message-util/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+93. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-message-util/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+94. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-message-util/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+95. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-validate/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+96. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-validate/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+97. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-validate/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+98. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-validate/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+99. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/yargs/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: devDependencies
+
+100. [INFO] Safe version detected: ansi-styles@^5.0.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/pretty-format/package.json
+   package: ansi-styles
+   safe_version: ^5.0.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+101. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-each/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+102. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-each/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+103. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-each/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+104. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-each/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+105. [INFO] Safe version detected: strip-ansi@^6.0.1 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/string-width/package.json
+   package: strip-ansi
+   safe_version: ^6.0.1
+   compromised_version: 7.1.1
+   📦 Type: dependencies
+
+106. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/send/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+107. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   📁 Location: test_demo/node_modules/finalhandler/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   📦 Type: dependencies
+
+108. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/create-jest/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+109. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/create-jest/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+110. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/create-jest/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+111. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/create-jest/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+112. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-diff/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+113. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   📁 Location: test_demo/node_modules/jest-diff/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   📦 Type: devDependencies
+
+114. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-diff/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+115. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-diff/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+116. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-diff/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+117. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/jest-config/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: dependencies
+
+118. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   📁 Location: test_demo/node_modules/jest-config/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   📦 Type: dependencies
+
+119. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   📁 Location: test_demo/node_modules/jest-config/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   📦 Type: dependencies
+
+120. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/node_modules/jest-config/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   📦 Type: dependencies
+
+121. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   📁 Location: test_demo/node_modules/expect/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   📦 Type: devDependencies
+
+122. [INFO] Safe version in lock file: ansi-regex@5.0.1 (compromised: 6.2.1)
+   📁 Location: test_demo/package-lock.json
+   package: ansi-regex
+   safe_version: 5.0.1
+   compromised_version: 6.2.1
+   📂 Path: node_modules/ansi-regex
+
+123. [INFO] Safe version in lock file: ansi-styles@5.2.0 (compromised: 6.2.2)
+   📁 Location: test_demo/package-lock.json
+   package: ansi-styles
+   safe_version: 5.2.0
+   compromised_version: 6.2.2
+   📂 Path: node_modules/ansi-styles
+
+124. [INFO] Safe version in lock file: chalk@5.6.2 (compromised: 5.6.1)
+   📁 Location: test_demo/package-lock.json
+   package: chalk
+   safe_version: 5.6.2
+   compromised_version: 5.6.1
+   📂 Path: node_modules/chalk
+
+125. [INFO] Safe version in lock file: color-convert@2.0.1 (compromised: 3.1.1)
+   📁 Location: test_demo/package-lock.json
+   package: color-convert
+   safe_version: 2.0.1
+   compromised_version: 3.1.1
+   📂 Path: node_modules/color-convert
+
+126. [INFO] Safe version in lock file: color-name@1.1.4 (compromised: 2.0.1)
+   📁 Location: test_demo/package-lock.json
+   package: color-name
+   safe_version: 1.1.4
+   compromised_version: 2.0.1
+   📂 Path: node_modules/color-name
+
+127. [INFO] Safe version in lock file: debug@4.4.1 (compromised: 4.4.2)
+   📁 Location: test_demo/package-lock.json
+   package: debug
+   safe_version: 4.4.1
+   compromised_version: 4.4.2
+   📂 Path: node_modules/debug
+
+128. [INFO] Safe version in lock file: is-arrayish@0.2.1 (compromised: 0.3.3)
+   📁 Location: test_demo/package-lock.json
+   package: is-arrayish
+   safe_version: 0.2.1
+   compromised_version: 0.3.3
+   📂 Path: node_modules/is-arrayish
+
+129. [INFO] Safe version in lock file: strip-ansi@6.0.1 (compromised: 7.1.1)
+   📁 Location: test_demo/package-lock.json
+   package: strip-ansi
+   safe_version: 6.0.1
+   compromised_version: 7.1.1
+   📂 Path: node_modules/strip-ansi
+
+130. [INFO] Safe version in lock file: supports-color@7.2.0 (compromised: 10.2.1)
+   📁 Location: test_demo/package-lock.json
+   package: supports-color
+   safe_version: 7.2.0
+   compromised_version: 10.2.1
+   📂 Path: node_modules/supports-color
+
+131. [INFO] Safe version in lock file: wrap-ansi@7.0.0 (compromised: 9.0.1)
+   📁 Location: test_demo/package-lock.json
+   package: wrap-ansi
+   safe_version: 7.0.0
+   compromised_version: 9.0.1
+   📂 Path: node_modules/wrap-ansi
+
+132. [INFO] Safe version in lock file: wrap-ansi@4.3.0 (compromised: 9.0.1)
+   📁 Location: test_demo/package-lock.json
+   package: wrap-ansi
+   safe_version: 4.3.0
+   compromised_version: 9.0.1
+   📂 Path: node_modules/wrap-ansi/node_modules/ansi-styles
+
+133. [HIGH] Malicious URL detected: npmjs.help
+   📁 Location: test_demo/suspicious_file.js
+   url: npmjs.help
+   context: const config = {
+    // This would trigger URL detection
+    supportEmail: 'support@npmjs.help',
+    helpDomain: 'npmjs.help',
+    
+
+134. [HIGH] Malicious URL detected: support@npmjs.help
+   📁 Location: test_demo/suspicious_file.js
+   url: support@npmjs.help
+   context: const config = {
+    // This would trigger URL detection
+    supportEmail: 'support@npmjs.help',
+    helpDomain: 'npmjs.help',
+    
+
+135. [MEDIUM] Crypto-related keywords detected: cryptocurrency, wallet, private key, bitcoin, ethereum, crypto, metamask, web3
+   📁 Location: test_demo/suspicious_file.js
+   keywords: ['cryptocurrency', 'wallet', 'private key', 'bitcoin', 'ethereum', 'crypto', 'metamask', 'web3']
+
+136. [ERROR] Failed to scan source file test_demo/node_modules/ipaddr.js: [Errno 21] Is a directory: 'test_demo/node_modules/ipaddr.js'
+   📁 Location: test_demo/node_modules/ipaddr.js
+
+SAFE VERSIONS OF POTENTIALLY VULNERABLE PACKAGES:
+--------------------------------------------------
+✅ ansi-regex
+   Safe versions found: 5.0.1
+   Compromised version: 6.2.1
+   Found in 3 location(s):
+     v5.0.1 (3 locations):
+       - 📁 .../node_modules/strip-ansi/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/strip-ansi/package.json
+       - 📁 .../node_modules/jest-snapshot/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/jest-snapshot/package.json
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ ansi-styles
+   Safe versions found: 4.0.0, 4.1.0, 5.0.0, 5.2.0
+   Compromised version: 6.2.2
+   Found in 25 location(s):
+     v4.0.0 (1 location):
+       - 📁 .../node_modules/wrap-ansi/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/wrap-ansi/package.json
+     v4.1.0 (21 locations):
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runtime/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-matcher-utils/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/types/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/core/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/reporters/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/transform/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/console/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-cli/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-circus/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/babel-jest/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-resolve/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-watcher/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runner/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-util/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-snapshot/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-message-util/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-validate/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-each/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/create-jest/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-diff/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-config/node_modules/chalk/package.json
+     v5.0.0 (2 locations):
+       - 📁 .../node_modules/jest-snapshot/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/jest-snapshot/package.json
+       - 📁 .../node_modules/pretty-format/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/pretty-format/package.json
+     v5.2.0 (1 location):
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ chalk
+   Safe versions found: 2.4.2, 4.0.0, 4.1.0, 5.3.0, 5.6.2
+   Compromised version: 5.6.1
+   Found in 28 location(s):
+     v2.4.2 (1 location):
+       - 📁 .../node_modules/color-convert/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/color-convert/package.json
+     v4.0.0 (24 locations):
+       - 📁 .../node_modules/jest-runtime/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runtime/package.json
+       - 📁 .../node_modules/jest-matcher-utils/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-matcher-utils/package.json
+       - 📁 .../@jest/types/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/types/package.json
+       - 📁 .../@jest/core/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/core/package.json
+       - 📁 .../@jest/reporters/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/reporters/package.json
+       - 📁 .../@jest/transform/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/transform/package.json
+       - 📁 .../@jest/console/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/console/package.json
+       - 📁 .../node_modules/jest-cli/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-cli/package.json
+       - 📁 .../node_modules/wrap-ansi/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/wrap-ansi/package.json
+       - 📁 .../node_modules/jest-circus/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-circus/package.json
+       - 📁 .../node_modules/babel-jest/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/babel-jest/package.json
+       - 📁 .../node_modules/jest-resolve/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-resolve/package.json
+       - 📁 .../node_modules/jest-watcher/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-watcher/package.json
+       - 📁 .../node_modules/jest-runner/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runner/package.json
+       - 📁 .../node_modules/jest-util/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-util/package.json
+       - 📁 .../node_modules/jest-snapshot/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-snapshot/package.json
+       - 📁 .../node_modules/jest-message-util/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-message-util/package.json
+       - 📁 .../node_modules/jest-validate/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-validate/package.json
+       - 📁 .../node_modules/yargs/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/yargs/package.json
+       - 📁 .../node_modules/jest-each/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-each/package.json
+       - 📁 .../node_modules/create-jest/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/create-jest/package.json
+       - 📁 .../node_modules/jest-diff/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-diff/package.json
+       - 📁 .../node_modules/jest-config/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-config/package.json
+       - 📁 .../node_modules/expect/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/expect/package.json
+     v4.1.0 (1 location):
+       - 📁 .../node_modules/cliui/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/cliui/package.json
+     v5.3.0 (1 location):
+       - 📁 test_demo/package.json [safe_dependencies]
+     v5.6.2 (1 location):
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ color-convert
+   Safe versions found: 2.0.1
+   Compromised version: 3.1.1
+   Found in 24 location(s):
+     v2.0.1 (24 locations):
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runtime/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-matcher-utils/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/types/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/core/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/reporters/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/transform/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/console/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-cli/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/wrap-ansi/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-circus/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/babel-jest/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-resolve/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-watcher/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/chalk/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runner/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-util/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-snapshot/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-message-util/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-validate/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-each/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/create-jest/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-diff/node_modules/ansi-styles/package.json
+       - 📁 .../node_modules/ansi-styles/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-config/node_modules/ansi-styles/package.json
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ color-name
+   Safe versions found: 1.1.4
+   Compromised version: 2.0.1
+   Found in 2 location(s):
+     v1.1.4 (2 locations):
+       - 📁 .../node_modules/color-convert/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/color-convert/package.json
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ debug
+   Safe versions found: 2.6.9, 4.1.0, 4.1.1, 4.3.1, 4.3.4, 4.4.1
+   Compromised version: 4.4.2
+   Found in 11 location(s):
+     v2.6.9 (4 locations):
+       - 📁 .../node_modules/express/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/express/package.json
+       - 📁 .../node_modules/body-parser/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/body-parser/package.json
+       - 📁 .../node_modules/send/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/send/package.json
+       - 📁 .../node_modules/finalhandler/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/finalhandler/package.json
+     v4.1.0 (1 location):
+       - 📁 .../@babel/core/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@babel/core/package.json
+     v4.1.1 (3 locations):
+       - 📁 .../node_modules/istanbul-lib-source-maps/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/istanbul-lib-source-maps/package.json
+       - 📁 .../node_modules/istanbul-lib-instrument/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/babel-plugin-istanbul/node_modules/istanbul-lib-instrument/package.json
+       - 📁 .../node_modules/istanbul-lib-instrument/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/istanbul-lib-instrument/package.json
+     v4.3.1 (1 location):
+       - 📁 .../@babel/traverse/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@babel/traverse/package.json
+     v4.3.4 (1 location):
+       - 📁 test_demo/package.json [safe_dependencies]
+     v4.4.1 (1 location):
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ has-ansi
+   Safe versions found: 4.0.0
+   Compromised version: 6.0.1
+   Found in 1 location(s):
+     v4.0.0 (1 location):
+       - 📁 .../node_modules/wrap-ansi/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/wrap-ansi/package.json
+
+✅ is-arrayish
+   Safe versions found: 0.2.1
+   Compromised version: 0.3.3
+   Found in 2 location(s):
+     v0.2.1 (2 locations):
+       - 📁 .../node_modules/error-ex/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/error-ex/package.json
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ strip-ansi
+   Safe versions found: 4.0.0, 6.0.0, 6.0.1
+   Compromised version: 7.1.1
+   Found in 9 location(s):
+     v4.0.0 (1 location):
+       - 📁 .../@babel/code-frame/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/@babel/code-frame/package.json
+     v6.0.0 (5 locations):
+       - 📁 .../@jest/core/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/core/package.json
+       - 📁 .../@jest/reporters/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/reporters/package.json
+       - 📁 .../node_modules/wrap-ansi/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/wrap-ansi/package.json
+       - 📁 .../node_modules/string-length/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/string-length/package.json
+       - 📁 .../node_modules/jest-diff/package.json [safe_devDependencies]
+         Full path: test_demo/node_modules/jest-diff/package.json
+     v6.0.1 (3 locations):
+       - 📁 .../node_modules/cliui/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/cliui/package.json
+       - 📁 .../node_modules/string-width/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/string-width/package.json
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+✅ supports-color
+   Safe versions found: 7.1.0, 7.2.0, 8.0.0
+   Compromised version: 10.2.1
+   Found in 24 location(s):
+     v7.1.0 (22 locations):
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runtime/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-matcher-utils/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/types/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/core/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/reporters/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/transform/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/@jest/console/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-cli/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-circus/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/babel-jest/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-resolve/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-watcher/node_modules/chalk/package.json
+       - 📁 .../node_modules/istanbul-lib-report/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/istanbul-lib-report/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-runner/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-util/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-snapshot/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-message-util/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-validate/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-each/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/create-jest/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-diff/node_modules/chalk/package.json
+       - 📁 .../node_modules/chalk/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-config/node_modules/chalk/package.json
+     v7.2.0 (1 location):
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+     v8.0.0 (1 location):
+       - 📁 .../node_modules/jest-worker/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/jest-worker/package.json
+
+✅ wrap-ansi
+   Safe versions found: 4.3.0, 7.0.0
+   Compromised version: 9.0.1
+   Found in 3 location(s):
+     v4.3.0 (1 location):
+       - 📁 test_demo/package-lock.json (depth: 2) [safe_lock_file_v2_v3]
+     v7.0.0 (2 locations):
+       - 📁 .../node_modules/cliui/package.json [safe_dependencies]
+         Full path: test_demo/node_modules/cliui/package.json
+       - 📁 test_demo/package-lock.json [safe_lock_file_v2_v3]
+
+RECOMMENDATIONS:
+--------------------
+SAFE VERSION OVERRIDES (add to package.json):
+  "overrides": {
+    "chalk": "5.3.0",
+    "strip-ansi": "7.1.0",
+    "color-convert": "2.0.1",
+    "color-name": "1.1.4",
+    "debug": "4.3.7",
+    "ansi-styles": "6.2.1",
+    "supports-color": "9.4.0",
+  }
+
+REFERENCE:
+- GitHub Issue: https://github.com/debug-js/debug/issues/1005
+- Attack Vector: Phishing email to package maintainer
+- Impact: Crypto wallet stealing in browser environments

@@ -1,0 +1,1056 @@
+================================================================================
+NPM PACKAGE COMPROMISE DETECTION REPORT
+================================================================================
+Scan completed: 2025-09-08 21:20:34
+Files scanned: 499
+Total findings: 136
+Packages analyzed: 1488
+
+PACKAGE ANALYSIS SUMMARY:
+------------------------------
+Direct dependencies: 3007
+Transitive dependencies: 0
+Lock file packages: 380
+Compromised packages found: 0
+Safe versions found: 132
+
+PACKAGE SOURCES:
+--------------------
+direct_dependencies: 372
+direct_devDependencies: 948
+direct_optionalDependencies: 1
+direct_peerDependencies: 9
+lock_file_v2_v3: 158
+
+SEVERITY SUMMARY:
+--------------------
+HIGH: 2
+MEDIUM: 1
+ERROR: 1
+INFO: 132
+
+DETAILED FINDINGS:
+--------------------
+1. [INFO] Safe version detected: debug@^4.3.4 (compromised: 4.4.2)
+   File: test_demo/package.json
+   package: debug
+   safe_version: ^4.3.4
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+2. [INFO] Safe version detected: chalk@^5.3.0 (compromised: 5.6.1)
+   File: test_demo/package.json
+   package: chalk
+   safe_version: ^5.3.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+3. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-runtime/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+4. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-runtime/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+5. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-runtime/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+6. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-runtime/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+7. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-matcher-utils/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+8. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-matcher-utils/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+9. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-matcher-utils/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+10. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-matcher-utils/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+11. [INFO] Safe version detected: debug@^4.1.1 (compromised: 4.4.2)
+   File: test_demo/node_modules/istanbul-lib-source-maps/package.json
+   package: debug
+   safe_version: ^4.1.1
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+12. [INFO] Safe version detected: supports-color@^8.0.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-worker/package.json
+   package: supports-color
+   safe_version: ^8.0.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+13. [INFO] Safe version detected: ansi-regex@^5.0.1 (compromised: 6.2.1)
+   File: test_demo/node_modules/strip-ansi/package.json
+   package: ansi-regex
+   safe_version: ^5.0.1
+   compromised_version: 6.2.1
+   dependency_type: dependencies
+
+14. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/@jest/types/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+15. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/@jest/types/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+16. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/@jest/types/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+17. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/@jest/types/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+18. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/@jest/core/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+19. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   File: test_demo/node_modules/@jest/core/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   dependency_type: dependencies
+
+20. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/@jest/core/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+21. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/@jest/core/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+22. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/@jest/core/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+23. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/@jest/reporters/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+24. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   File: test_demo/node_modules/@jest/reporters/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   dependency_type: dependencies
+
+25. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/@jest/reporters/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+26. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/@jest/reporters/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+27. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/@jest/reporters/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+28. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/@jest/transform/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+29. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/@jest/transform/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+30. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/@jest/transform/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+31. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/@jest/transform/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+32. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/@jest/console/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+33. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/@jest/console/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+34. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/@jest/console/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+35. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/@jest/console/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+36. [INFO] Safe version detected: is-arrayish@^0.2.1 (compromised: 0.3.3)
+   File: test_demo/node_modules/error-ex/package.json
+   package: is-arrayish
+   safe_version: ^0.2.1
+   compromised_version: 0.3.3
+   dependency_type: dependencies
+
+37. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-cli/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+38. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-cli/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+39. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-cli/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+40. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-cli/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+41. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   File: test_demo/node_modules/express/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+42. [INFO] Safe version detected: ansi-styles@^4.0.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/wrap-ansi/package.json
+   package: ansi-styles
+   safe_version: ^4.0.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+43. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   File: test_demo/node_modules/wrap-ansi/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   dependency_type: dependencies
+
+44. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/wrap-ansi/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: devDependencies
+
+45. [INFO] Safe version detected: has-ansi@^4.0.0 (compromised: 6.0.1)
+   File: test_demo/node_modules/wrap-ansi/package.json
+   package: has-ansi
+   safe_version: ^4.0.0
+   compromised_version: 6.0.1
+   dependency_type: devDependencies
+
+46. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/wrap-ansi/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+47. [INFO] Safe version detected: debug@^4.1.1 (compromised: 4.4.2)
+   File: test_demo/node_modules/babel-plugin-istanbul/node_modules/istanbul-lib-instrument/package.json
+   package: debug
+   safe_version: ^4.1.1
+   compromised_version: 4.4.2
+   dependency_type: devDependencies
+
+48. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-circus/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+49. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-circus/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+50. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-circus/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+51. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-circus/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+52. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   File: test_demo/node_modules/string-length/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   dependency_type: dependencies
+
+53. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/babel-jest/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+54. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/babel-jest/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+55. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/babel-jest/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+56. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/babel-jest/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+57. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-resolve/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+58. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-resolve/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+59. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-resolve/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+60. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-resolve/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+61. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-watcher/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+62. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-watcher/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+63. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-watcher/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+64. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-watcher/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+65. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/chalk/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: devDependencies
+
+66. [INFO] Safe version detected: color-name@~1.1.4 (compromised: 2.0.1)
+   File: test_demo/node_modules/color-convert/package.json
+   package: color-name
+   safe_version: ~1.1.4
+   compromised_version: 2.0.1
+   dependency_type: dependencies
+
+67. [INFO] Safe version detected: chalk@^2.4.2 (compromised: 5.6.1)
+   File: test_demo/node_modules/color-convert/package.json
+   package: chalk
+   safe_version: ^2.4.2
+   compromised_version: 5.6.1
+   dependency_type: devDependencies
+
+68. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/istanbul-lib-report/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+69. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-runner/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+70. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-runner/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+71. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-runner/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+72. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-runner/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+73. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   File: test_demo/node_modules/body-parser/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+74. [INFO] Safe version detected: debug@^4.1.0 (compromised: 4.4.2)
+   File: test_demo/node_modules/@babel/core/package.json
+   package: debug
+   safe_version: ^4.1.0
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+75. [INFO] Safe version detected: strip-ansi@^4.0.0 (compromised: 7.1.1)
+   File: test_demo/node_modules/@babel/code-frame/package.json
+   package: strip-ansi
+   safe_version: ^4.0.0
+   compromised_version: 7.1.1
+   dependency_type: devDependencies
+
+76. [INFO] Safe version detected: debug@^4.3.1 (compromised: 4.4.2)
+   File: test_demo/node_modules/@babel/traverse/package.json
+   package: debug
+   safe_version: ^4.3.1
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+77. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-util/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+78. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-util/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+79. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-util/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+80. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-util/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+81. [INFO] Safe version detected: strip-ansi@^6.0.1 (compromised: 7.1.1)
+   File: test_demo/node_modules/cliui/package.json
+   package: strip-ansi
+   safe_version: ^6.0.1
+   compromised_version: 7.1.1
+   dependency_type: dependencies
+
+82. [INFO] Safe version detected: wrap-ansi@^7.0.0 (compromised: 9.0.1)
+   File: test_demo/node_modules/cliui/package.json
+   package: wrap-ansi
+   safe_version: ^7.0.0
+   compromised_version: 9.0.1
+   dependency_type: dependencies
+
+83. [INFO] Safe version detected: chalk@^4.1.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/cliui/package.json
+   package: chalk
+   safe_version: ^4.1.0
+   compromised_version: 5.6.1
+   dependency_type: devDependencies
+
+84. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-snapshot/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+85. [INFO] Safe version detected: ansi-regex@^5.0.1 (compromised: 6.2.1)
+   File: test_demo/node_modules/jest-snapshot/package.json
+   package: ansi-regex
+   safe_version: ^5.0.1
+   compromised_version: 6.2.1
+   dependency_type: devDependencies
+
+86. [INFO] Safe version detected: ansi-styles@^5.0.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-snapshot/package.json
+   package: ansi-styles
+   safe_version: ^5.0.0
+   compromised_version: 6.2.2
+   dependency_type: devDependencies
+
+87. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-snapshot/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+88. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-snapshot/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+89. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-snapshot/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+90. [INFO] Safe version detected: debug@^4.1.1 (compromised: 4.4.2)
+   File: test_demo/node_modules/istanbul-lib-instrument/package.json
+   package: debug
+   safe_version: ^4.1.1
+   compromised_version: 4.4.2
+   dependency_type: devDependencies
+
+91. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-message-util/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+92. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-message-util/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+93. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-message-util/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+94. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-message-util/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+95. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-validate/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+96. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-validate/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+97. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-validate/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+98. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-validate/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+99. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/yargs/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: devDependencies
+
+100. [INFO] Safe version detected: ansi-styles@^5.0.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/pretty-format/package.json
+   package: ansi-styles
+   safe_version: ^5.0.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+101. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-each/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+102. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-each/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+103. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-each/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+104. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-each/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+105. [INFO] Safe version detected: strip-ansi@^6.0.1 (compromised: 7.1.1)
+   File: test_demo/node_modules/string-width/package.json
+   package: strip-ansi
+   safe_version: ^6.0.1
+   compromised_version: 7.1.1
+   dependency_type: dependencies
+
+106. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   File: test_demo/node_modules/send/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+107. [INFO] Safe version detected: debug@2.6.9 (compromised: 4.4.2)
+   File: test_demo/node_modules/finalhandler/package.json
+   package: debug
+   safe_version: 2.6.9
+   compromised_version: 4.4.2
+   dependency_type: dependencies
+
+108. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/create-jest/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+109. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/create-jest/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+110. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/create-jest/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+111. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/create-jest/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+112. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-diff/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+113. [INFO] Safe version detected: strip-ansi@^6.0.0 (compromised: 7.1.1)
+   File: test_demo/node_modules/jest-diff/package.json
+   package: strip-ansi
+   safe_version: ^6.0.0
+   compromised_version: 7.1.1
+   dependency_type: devDependencies
+
+114. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-diff/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+115. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-diff/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+116. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-diff/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+117. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/jest-config/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: dependencies
+
+118. [INFO] Safe version detected: ansi-styles@^4.1.0 (compromised: 6.2.2)
+   File: test_demo/node_modules/jest-config/node_modules/chalk/package.json
+   package: ansi-styles
+   safe_version: ^4.1.0
+   compromised_version: 6.2.2
+   dependency_type: dependencies
+
+119. [INFO] Safe version detected: supports-color@^7.1.0 (compromised: 10.2.1)
+   File: test_demo/node_modules/jest-config/node_modules/chalk/package.json
+   package: supports-color
+   safe_version: ^7.1.0
+   compromised_version: 10.2.1
+   dependency_type: dependencies
+
+120. [INFO] Safe version detected: color-convert@^2.0.1 (compromised: 3.1.1)
+   File: test_demo/node_modules/jest-config/node_modules/ansi-styles/package.json
+   package: color-convert
+   safe_version: ^2.0.1
+   compromised_version: 3.1.1
+   dependency_type: dependencies
+
+121. [INFO] Safe version detected: chalk@^4.0.0 (compromised: 5.6.1)
+   File: test_demo/node_modules/expect/package.json
+   package: chalk
+   safe_version: ^4.0.0
+   compromised_version: 5.6.1
+   dependency_type: devDependencies
+
+122. [INFO] Safe version in lock file: ansi-regex@5.0.1 (compromised: 6.2.1)
+   File: test_demo/package-lock.json
+   package: ansi-regex
+   safe_version: 5.0.1
+   compromised_version: 6.2.1
+   path: node_modules/ansi-regex
+
+123. [INFO] Safe version in lock file: ansi-styles@5.2.0 (compromised: 6.2.2)
+   File: test_demo/package-lock.json
+   package: ansi-styles
+   safe_version: 5.2.0
+   compromised_version: 6.2.2
+   path: node_modules/ansi-styles
+
+124. [INFO] Safe version in lock file: chalk@5.6.2 (compromised: 5.6.1)
+   File: test_demo/package-lock.json
+   package: chalk
+   safe_version: 5.6.2
+   compromised_version: 5.6.1
+   path: node_modules/chalk
+
+125. [INFO] Safe version in lock file: color-convert@2.0.1 (compromised: 3.1.1)
+   File: test_demo/package-lock.json
+   package: color-convert
+   safe_version: 2.0.1
+   compromised_version: 3.1.1
+   path: node_modules/color-convert
+
+126. [INFO] Safe version in lock file: color-name@1.1.4 (compromised: 2.0.1)
+   File: test_demo/package-lock.json
+   package: color-name
+   safe_version: 1.1.4
+   compromised_version: 2.0.1
+   path: node_modules/color-name
+
+127. [INFO] Safe version in lock file: debug@4.4.1 (compromised: 4.4.2)
+   File: test_demo/package-lock.json
+   package: debug
+   safe_version: 4.4.1
+   compromised_version: 4.4.2
+   path: node_modules/debug
+
+128. [INFO] Safe version in lock file: is-arrayish@0.2.1 (compromised: 0.3.3)
+   File: test_demo/package-lock.json
+   package: is-arrayish
+   safe_version: 0.2.1
+   compromised_version: 0.3.3
+   path: node_modules/is-arrayish
+
+129. [INFO] Safe version in lock file: strip-ansi@6.0.1 (compromised: 7.1.1)
+   File: test_demo/package-lock.json
+   package: strip-ansi
+   safe_version: 6.0.1
+   compromised_version: 7.1.1
+   path: node_modules/strip-ansi
+
+130. [INFO] Safe version in lock file: supports-color@7.2.0 (compromised: 10.2.1)
+   File: test_demo/package-lock.json
+   package: supports-color
+   safe_version: 7.2.0
+   compromised_version: 10.2.1
+   path: node_modules/supports-color
+
+131. [INFO] Safe version in lock file: wrap-ansi@7.0.0 (compromised: 9.0.1)
+   File: test_demo/package-lock.json
+   package: wrap-ansi
+   safe_version: 7.0.0
+   compromised_version: 9.0.1
+   path: node_modules/wrap-ansi
+
+132. [INFO] Safe version in lock file: wrap-ansi@4.3.0 (compromised: 9.0.1)
+   File: test_demo/package-lock.json
+   package: wrap-ansi
+   safe_version: 4.3.0
+   compromised_version: 9.0.1
+   path: node_modules/wrap-ansi/node_modules/ansi-styles
+
+133. [HIGH] Malicious URL detected: npmjs.help
+   File: test_demo/suspicious_file.js
+   url: npmjs.help
+   context: const config = {
+    // This would trigger URL detection
+    supportEmail: 'support@npmjs.help',
+    helpDomain: 'npmjs.help',
+    
+
+134. [HIGH] Malicious URL detected: support@npmjs.help
+   File: test_demo/suspicious_file.js
+   url: support@npmjs.help
+   context: const config = {
+    // This would trigger URL detection
+    supportEmail: 'support@npmjs.help',
+    helpDomain: 'npmjs.help',
+    
+
+135. [MEDIUM] Crypto-related keywords detected: cryptocurrency, wallet, private key, bitcoin, ethereum, crypto, metamask, web3
+   File: test_demo/suspicious_file.js
+   keywords: ['cryptocurrency', 'wallet', 'private key', 'bitcoin', 'ethereum', 'crypto', 'metamask', 'web3']
+
+136. [ERROR] Failed to scan source file test_demo/node_modules/ipaddr.js: [Errno 21] Is a directory: 'test_demo/node_modules/ipaddr.js'
+   File: test_demo/node_modules/ipaddr.js
+
+SAFE VERSIONS OF POTENTIALLY VULNERABLE PACKAGES:
+--------------------------------------------------
+✅ ansi-regex
+   Safe versions found: 5.0.1
+   Compromised version: 6.2.1
+   Found in 3 location(s)
+
+✅ ansi-styles
+   Safe versions found: 4.0.0, 4.1.0, 5.0.0, 5.2.0
+   Compromised version: 6.2.2
+   Found in 25 location(s)
+
+✅ chalk
+   Safe versions found: 2.4.2, 4.0.0, 4.1.0, 5.3.0, 5.6.2
+   Compromised version: 5.6.1
+   Found in 28 location(s)
+
+✅ color-convert
+   Safe versions found: 2.0.1
+   Compromised version: 3.1.1
+   Found in 24 location(s)
+
+✅ color-name
+   Safe versions found: 1.1.4
+   Compromised version: 2.0.1
+   Found in 2 location(s)
+
+✅ debug
+   Safe versions found: 2.6.9, 4.1.0, 4.1.1, 4.3.1, 4.3.4, 4.4.1
+   Compromised version: 4.4.2
+   Found in 11 location(s)
+
+✅ has-ansi
+   Safe versions found: 4.0.0
+   Compromised version: 6.0.1
+   Found in 1 location(s)
+
+✅ is-arrayish
+   Safe versions found: 0.2.1
+   Compromised version: 0.3.3
+   Found in 2 location(s)
+
+✅ strip-ansi
+   Safe versions found: 4.0.0, 6.0.0, 6.0.1
+   Compromised version: 7.1.1
+   Found in 9 location(s)
+
+✅ supports-color
+   Safe versions found: 7.1.0, 7.2.0, 8.0.0
+   Compromised version: 10.2.1
+   Found in 24 location(s)
+
+✅ wrap-ansi
+   Safe versions found: 4.3.0, 7.0.0
+   Compromised version: 9.0.1
+   Found in 3 location(s)
+
+RECOMMENDATIONS:
+--------------------
+SAFE VERSION OVERRIDES (add to package.json):
+  "overrides": {
+    "chalk": "5.3.0",
+    "strip-ansi": "7.1.0",
+    "color-convert": "2.0.1",
+    "color-name": "1.1.4",
+    "debug": "4.3.7",
+    "ansi-styles": "6.2.1",
+    "supports-color": "9.4.0",
+  }
+
+REFERENCE:
+- GitHub Issue: https://github.com/debug-js/debug/issues/1005
+- Attack Vector: Phishing email to package maintainer
+- Impact: Crypto wallet stealing in browser environments
