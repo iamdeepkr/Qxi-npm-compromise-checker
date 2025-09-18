@@ -264,8 +264,12 @@ python3 npm_compromise_detector.py /path/to/project --show-locations
 ```
 
 **Solution**: Updated to more precise patterns:
-- **package-lock.json**: `grep -A 10 "\"$package\": {" "$file"` - Only matches actual package declarations
+- **package-lock.json**: `grep -A 10 "\"$package\": {" OR "\"node_modules/$package\": {"` - Only matches actual package declarations
 - **yarn.lock**: `grep -A 10 "^$package@" "$file" | grep -q "^  version \""` - Only matches actual version lines
+
+**Validation**: ✅ Tested with `color-convert@2.0.1` (safe) vs `color-convert@3.1.1` (compromised)
+- **Before**: Would incorrectly flag safe version 2.0.1 as compromised
+- **After**: Correctly identifies only actual compromised versions
 
 **Result**: ✅ Eliminates false positives while maintaining accurate detection of actual compromised packages.
 
