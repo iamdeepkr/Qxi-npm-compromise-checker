@@ -68,14 +68,16 @@ check_lock_file() {
     while IFS=: read -r package compromised_version; do
         if [ -n "$package" ] && [ -n "$compromised_version" ]; then
             if [[ "$file" == *"package-lock.json" ]]; then
-                # Check package-lock.json format
-                if grep -q "\"$package\"" "$file" && grep -A 5 -B 5 "\"$package\"" "$file" | grep -q "\"version\": \"$compromised_version\"" 2>/dev/null; then
+                # Check package-lock.json format - more precise pattern to avoid false positives
+                # Handle both old format ("package": {) and new format ("node_modules/package": {)
+                if { grep -A 10 "\"$package\": {" "$file" || grep -A 10 "\"node_modules/$package\": {" "$file"; } 2>/dev/null | grep -q "\"version\": \"$compromised_version\"" 2>/dev/null; then
                     echo -e "${RED}🚨 CRITICAL: Found compromised package $package@$compromised_version in $file${NC}"
                     FOUND_COMPROMISED=1
                 fi
             elif [[ "$file" == *"yarn.lock" ]]; then
-                # Check yarn.lock format
-                if grep -q "^$package@" "$file" && grep -A 10 "^$package@" "$file" | grep -q "version \"$compromised_version\"" 2>/dev/null; then
+                # Check yarn.lock format - look for package@version or package@^version patterns
+                # More precise: check if the exact compromised version appears in a version line under this package
+                if grep -A 10 "^$package@" "$file" | grep -q "^  version \"$compromised_version\"" 2>/dev/null; then
                     echo -e "${RED}🚨 CRITICAL: Found compromised package $package@$compromised_version in $file${NC}"
                     FOUND_COMPROMISED=1
                 fi

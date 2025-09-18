@@ -1,0 +1,12 @@
+[phoenix]
+# Phoenix Security API Configuration
+api_base_url = https://api.demo2.appsecphx.io
+client_id = your_client_id_here
+client_secret = your_client_secret_here
+
+# Assessment Configuration
+assessment_name_prefix = NPM_Compromise_Scan
+default_tag = npm-security-scan
+
+# Optional: Repository mapping
+# repo_mapping_file = repo_mapping.json

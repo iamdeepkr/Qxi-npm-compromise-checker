@@ -68,40 +68,59 @@ python3 npm_compromise_detector.py --quiet
 
 ## ⚡ Quick Command Guide
 
-### 🔍 **Essential Scans**
+### 🔍 **Essential Security Scans**
 ```bash
-# Comprehensive security audit with all features
-python3 npm_compromise_detector.py '/path/to/your/project' --output security-audit.txt --check-cache --full-tree --show-locations
+# Basic scan with report
+python3 npm_compromise_detector.py '/Users/username/Documents/my-project' --output security-report.txt
 
-# Quick check with enhanced locations
-python3 npm_compromise_detector.py '/path/to/your/project' --show-locations
+# Comprehensive security audit (recommended for production)
+python3 npm_compromise_detector.py '/Users/username/Documents/my-frontend-app' --output audit-report.txt --check-cache --full-tree --show-locations
 
-# Complete analysis with package inventory
-python3 npm_compromise_detector.py '/path/to/your/project' --full-tree --list-packages --output complete-report.txt
+# Quick check with detailed locations
+python3 npm_compromise_detector.py '/Users/username/Documents/my-react-app' --show-locations
+
+# Development workflow scan
+python3 npm_compromise_detector.py '/Users/username/Documents/my-project' --full-tree --list-packages
 ```
 
-### 🎯 **Production Ready Commands**
+### 🎯 **Real-World Examples**
 ```bash
-# CI/CD pipeline scan (quiet mode for automation)
-python3 npm_compromise_detector.py '/path/to/your/project' --quiet --output ci-security-scan.txt
+# Frontend project security audit
+python3 npm_compromise_detector.py '/Users/username/Documents/GitHub/my-frontend' --output frontend-security.txt --check-cache --full-tree --show-locations
 
-# Development workflow scan (detailed feedback)
-python3 npm_compromise_detector.py '/path/to/your/project' --full-tree --show-locations
+# Backend API security check
+python3 npm_compromise_detector.py '/Users/username/Documents/GitHub/my-api' --output api-security.txt --full-tree
 
-# Security team audit (comprehensive with all data)
-python3 npm_compromise_detector.py '/path/to/your/project' --output audit-report.txt --check-cache --full-tree --list-packages --show-locations
+# Multiple project comparison
+python3 npm_compromise_detector.py '/Users/username/Documents/project-a' --output project-a-scan.txt --full-tree
+python3 npm_compromise_detector.py '/Users/username/Documents/project-b' --output project-b-scan.txt --full-tree
+
+# CI/CD integration (quiet mode)
+python3 npm_compromise_detector.py '/Users/username/Documents/GitHub/production-app' --quiet --output ci-scan.txt
 ```
 
 ### 📊 **Specialized Scans**
 ```bash
-# Focus on npm cache vulnerabilities
-python3 npm_compromise_detector.py '/path/to/your/project' --check-cache --output cache-scan.txt
+# Package inventory audit
+python3 npm_compromise_detector.py '/Users/username/Documents/my-app' --list-packages --output package-inventory.txt
 
-# Package inventory only (no vulnerability scan)
-python3 npm_compromise_detector.py '/path/to/your/project' --list-packages --quiet --output package-inventory.txt
+# Cache vulnerability check
+python3 npm_compromise_detector.py '/Users/username/Documents/my-project' --check-cache --output cache-scan.txt
 
-# Fast scan with location details (no full tree)
-python3 npm_compromise_detector.py '/path/to/your/project' --show-locations --output quick-detailed-scan.txt
+# Location-focused investigation
+python3 npm_compromise_detector.py '/Users/username/Documents/suspicious-project' --show-locations --output investigation.txt
+```
+
+### 🚀 **Production-Ready Commands**
+```bash
+# Complete security assessment
+python3 npm_compromise_detector.py '/Users/username/Documents/GitHub/production-frontend' --output complete-audit.txt --check-cache --full-tree --list-packages --show-locations
+
+# Fast security check for daily use
+python3 npm_compromise_detector.py '/Users/username/Documents/current-project' --show-locations
+
+# Enterprise audit with all features
+python3 npm_compromise_detector.py '/Users/username/Documents/enterprise-app' --output enterprise-security-audit.txt --full-tree --show-locations --check-cache
 ```
 
 ## 📊 Tool Features
@@ -224,6 +243,31 @@ python3 npm_compromise_detector.py /path/to/project --show-locations
        - 📁 package.json [safe_dependencies]
        - 📁 package-lock.json [safe_lock_file_v2_v3]
 ```
+
+## 🐛 Recent Fixes
+
+### ✅ **False Positive Fix** (v1.1)
+**Issue**: The shell script (`quick_check.sh`) was producing false positives when checking `package-lock.json` files.
+
+**Problem**: The original grep pattern `grep -A 5 -B 5 "\"$package\""` would match package names in `requires` sections and then incorrectly flag legitimate versions as compromised.
+
+**Example False Positive**:
+```json
+"ansi-styles": {
+  "requires": {
+    "color-convert": "^2.0.1"  // This 2.0.1 was incorrectly flagged
+  }
+},
+"color-convert": {
+  "version": "2.0.1"  // Safe version, but script flagged as compromised 3.1.1
+}
+```
+
+**Solution**: Updated to more precise patterns:
+- **package-lock.json**: `grep -A 10 "\"$package\": {" "$file"` - Only matches actual package declarations
+- **yarn.lock**: `grep -A 10 "^$package@" "$file" | grep -q "^  version \""` - Only matches actual version lines
+
+**Result**: ✅ Eliminates false positives while maintaining accurate detection of actual compromised packages.
 
 ## 🛠️ Installation & Setup
 
